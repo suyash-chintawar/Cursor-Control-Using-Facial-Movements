@@ -43,7 +43,8 @@ FaceData = namedtuple("FaceData", "shape mouth "
                                   "right_eye_aspect_ratio "
                                   "eye_aspect_ratio "
                                   "eye_aspect_ratio_diff "
-                                  "nose_point")
+                                  "nose_point "
+                                  "left_eye_brow_diff")
 
 
 DLIB_SHAPE_PREDICTOR = "model/shape_predictor_68_face_landmarks.dat"
@@ -82,6 +83,12 @@ def get_data(frame):
     eye_aspect_ratio = (left_eye_aspect_ratio + right_eye_aspect_ratio) / 2
     eye_aspect_ratio_diff = abs(left_eye_aspect_ratio - right_eye_aspect_ratio)
 
+    l_brow = left_eyebrow
+    y_l_brow = [point[1] for point in l_brow]
+    avg_y_l_brow = sum(y_l_brow) / len(y_l_brow)
+    avg_y_l_eye = (left_eye[0][1] + left_eye[3][1])/2
+    left_eye_brow_diff = avg_y_l_eye - avg_y_l_brow
+
     return FaceData(shape=shape,
                     mouth=mouth,
                     left_eye=left_eye,
@@ -93,4 +100,5 @@ def get_data(frame):
                     right_eye_aspect_ratio=right_eye_aspect_ratio,
                     eye_aspect_ratio=eye_aspect_ratio,
                     eye_aspect_ratio_diff=eye_aspect_ratio_diff,
-                    nose_point=(nose[3, 0], nose[3, 1]))
+                    nose_point=(nose[3, 0], nose[3, 1]),
+                    left_eye_brow_diff=left_eye_brow_diff)

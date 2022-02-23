@@ -28,14 +28,8 @@ mouth_counter = 0
 def action(data):
     global wink_counter, eye_counter, mouth_counter
 
-    lBrow = data.left_eyebrow
-    ylBrow = [point[1] for point in lBrow]
-    avg_ylBrow = sum(ylBrow)/len(ylBrow)
-    avg_ylEye = (data.left_eye[0][1]+data.left_eye[3][1])/2
-    
-
     if data.eye_aspect_ratio_diff > WINK_EYE_AR_DIFF or \
-            (controller.left_eye_brow_diff is not None and ((avg_ylEye-avg_ylBrow) - controller.left_eye_brow_diff >= 5)):
+            (controller.left_eye_brow_diff is not None and (data.left_eye_brow_diff - controller.left_eye_brow_diff >= 5)):
         if data.left_eye_aspect_ratio < data.right_eye_aspect_ratio:
             if data.left_eye_aspect_ratio < WINK_EYE_AR_THRESH:
                 wink_counter += 1
