@@ -14,6 +14,7 @@ COLOR_BLACK = (0, 0, 0)
 
 W, H = 60, 35
 
+
 def mode_to_str(mode):
     if mode is controller.MODE_SCROLL:
         return 'Scroll Mode'
@@ -39,7 +40,13 @@ def show(frame, data, mode, message, anchor):
         cv2.drawContours(frame, [left_eye_hull], -1, COLOR_YELLOW, 1)
         cv2.drawContours(frame, [right_eye_hull], -1, COLOR_YELLOW, 1)
 
-        for (x, y) in np.concatenate((data.mouth, data.left_eye, data.right_eye), axis=0):
+        for i in range(1, len(data.left_eyebrow)):
+            cv2.line(frame, tuple(data.left_eyebrow[i-1]), tuple(data.left_eyebrow[i]), COLOR_YELLOW)
+
+        for i in range(1, len(data.right_eyebrow)):
+            cv2.line(frame, tuple(data.right_eyebrow[i-1]), tuple(data.right_eyebrow[i]), COLOR_YELLOW)
+
+        for (x, y) in np.concatenate((data.mouth, data.left_eye, data.right_eye, data.left_eyebrow, data.right_eyebrow), axis=0):
             cv2.circle(frame, (x, y), 2, COLOR_GREEN, -1)
 
         if anchor is not None:

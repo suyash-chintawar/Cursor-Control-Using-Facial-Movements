@@ -15,7 +15,7 @@ if __name__ == '__main__':
         data = face.get_data(frame)
         if data is not None:
             action = face_analyser.action(data)
-            message = controller.perform(action, data.nose_point)
+            message = controller.perform(action, data)
         else:
             message = None
 

@@ -36,6 +36,8 @@ def _mouth_aspect_ratio(mouth_landmarks):
 FaceData = namedtuple("FaceData", "shape mouth "
                                   "left_eye "
                                   "right_eye "
+                                  "left_eyebrow "
+                                  "right_eyebrow "
                                   "mouth_aspect_ratio "
                                   "left_eye_aspect_ratio "
                                   "right_eye_aspect_ratio "
@@ -71,6 +73,8 @@ def get_data(frame):
     # intentionally flipped
     right_eye = shape[slice(*face_utils.FACIAL_LANDMARKS_IDXS["left_eye"])]
     left_eye = shape[slice(*face_utils.FACIAL_LANDMARKS_IDXS["right_eye"])]
+    left_eyebrow = shape[slice(*face_utils.FACIAL_LANDMARKS_IDXS["left_eyebrow"])]
+    right_eyebrow = shape[slice(*face_utils.FACIAL_LANDMARKS_IDXS["right_eyebrow"])]
 
     mouth_aspect_ratio = _mouth_aspect_ratio(mouth)
     left_eye_aspect_ratio = _eye_aspect_ratio(left_eye)
@@ -82,6 +86,8 @@ def get_data(frame):
                     mouth=mouth,
                     left_eye=left_eye,
                     right_eye=right_eye,
+                    left_eyebrow=left_eyebrow,
+                    right_eyebrow=right_eyebrow,
                     mouth_aspect_ratio=mouth_aspect_ratio,
                     left_eye_aspect_ratio=left_eye_aspect_ratio,
                     right_eye_aspect_ratio=right_eye_aspect_ratio,

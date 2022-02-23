@@ -31,6 +31,7 @@ def _get_direction(nose_point, anchor_point, w=60, h=35, multiple=1):
     return None
 
 
+left_eye_brow_diff = None
 mode = None
 is_mode_selection = False
 anchor = None
@@ -47,18 +48,34 @@ def get_other_modes():
         return [MODE_CURSOR, MODE_SCROLL]
 
 
-def perform(action, nose_point):
-    global mode, is_mode_selection, anchor, previous_action
+def perform(action, data):
+    global mode, is_mode_selection, anchor, previous_action, left_eye_brow_diff
 
     if mode is None:
         if action is analyser.ACTION_OPEN_MOUTH:
             mode = MODE_CURSOR
-            anchor = nose_point
+            anchor = data.nose_point
+
+            #DIFF BETWEEN LEFT EYEBROW AND LEFT EYE
+            lBrow = data.left_eyebrow
+            ylBrow = [point[1] for point in lBrow]
+            avg_ylBrow = sum(ylBrow)/len(ylBrow)
+            avg_ylEye = (data.left_eye[0][1]+data.left_eye[3][1])/2
+            left_eye_brow_diff = avg_ylEye-avg_ylBrow
     else:
-        print('nose_point:',nose_point)
-        print('anchor_point:',anchor)
-        direction = _get_direction(nose_point, anchor)
-        print('direction:',direction,'\n')
+
+        if left_eye_brow_diff is not None:
+            lBrow = data.left_eyebrow
+            ylBrow = [point[1] for point in lBrow]
+            avg_ylBrow = sum(ylBrow)/len(ylBrow)
+            avg_ylEye = (data.left_eye[0][1]+data.left_eye[3][1])/2
+            temp = avg_ylEye-avg_ylBrow
+            print(left_eye_brow_diff,temp)
+
+        # print('nose_point:',data.nose_point)
+        # print('anchor_point:',anchor)
+        direction = _get_direction(data.nose_point, anchor)
+        # print('direction:',direction,'\n')
         if direction is DIRECTION_UP:
             if mode is MODE_SCROLL:
                 pyag.scroll(SCROLL)
