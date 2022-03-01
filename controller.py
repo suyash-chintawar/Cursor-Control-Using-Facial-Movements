@@ -106,10 +106,20 @@ def perform(action, data):
         mode = None
         return 'Controller Deactivated'
     elif action is analyser.ACTION_LEFT_WINK:
-        pyag.click(button="left")
-        return "Left Click"
+        if mode is MODE_TEAMS:
+            pyag.hotkey("ctrl", "shiftleft", "o")
+            print("Toggle Camera")
+            return "Toggle Camera"
+        else:
+            pyag.click(button="left")
+            return "Left Click"
     elif action is analyser.ACTION_RIGHT_WINK:
-        pyag.click(button="right")
-        return "Right Click"
+        if mode is MODE_TEAMS:
+            pyag.hotkey("ctrl", "shiftleft", "m")
+            print("Toggle Mic")
+            return "Toggle Mic"
+        else:
+            pyag.click(button="right")
+            return "Right Click"
     else:
         return None
