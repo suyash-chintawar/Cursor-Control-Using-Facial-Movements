@@ -59,8 +59,9 @@ def show(frame, data, mode, message, anchor):
 
     if controller.is_mode_selection:
         other_modes = controller.get_other_modes()
-        modes_str = f"Left = {mode_to_str(other_modes[0])} | Right = {mode_to_str(other_modes[1])}"
-        cv2.putText(frame, modes_str, (10, 180), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_RED, 2)
+        if other_modes is not None:
+            modes_str = f"Left = {mode_to_str(other_modes[0])} | Right = {mode_to_str(other_modes[1])}"
+            cv2.putText(frame, modes_str, (10, 180), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_RED, 2)
 
     cv2.imshow("Frame", frame)
 

@@ -29,7 +29,8 @@ def action(data):
     global wink_counter, eye_counter, mouth_counter
 
     if data.eye_aspect_ratio_diff > WINK_EYE_AR_DIFF or \
-            (controller.left_eye_brow_diff is not None and (data.left_eye_brow_diff - controller.left_eye_brow_diff >= 5)):
+            (controller.left_eye_brow_diff is not None and (data.left_eye_brow_diff - controller.left_eye_brow_diff >= 5)) or\
+            (controller.right_eye_brow_diff is not None and (data.right_eye_brow_diff - controller.right_eye_brow_diff >= 5)):
         if data.left_eye_aspect_ratio < data.right_eye_aspect_ratio:
             if data.left_eye_aspect_ratio < WINK_EYE_AR_THRESH:
                 wink_counter += 1
