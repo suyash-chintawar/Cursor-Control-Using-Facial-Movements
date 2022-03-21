@@ -64,6 +64,7 @@ def show(frame, data, mode, message, anchor):
             cv2.putText(frame, modes_str, (10, 180), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_RED, 2)
 
     cv2.imshow("Frame", frame)
+    # return frame
 
 
 def destroy_all_windows():
