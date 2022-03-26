@@ -1,9 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Video Streaming </title>
+    <title>Yatri Guide </title>
     <link rel="stylesheet" type="text/css" href="../static/styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
 </head>
 <body>
     <div class="canvas_div split left">
@@ -11,14 +11,21 @@
             <canvas id="canvas" width="640px" height="480px"></canvas>
         </div>
     </div>
-    <div class="web_content_div split right"></div>
-    <!-- <script type="text/javascript" src="../static/scripts/script.js"></script> -->
+    <div class="web_content_div split right">
+        <div id="app_name">Yatri Guide</div>
+        <div class="welcome_message">Welcome to Touch-Free Live Status Interface<br><br> Choose one of the following to continue <br></div>
+        <div class="vehicle_type">
+            <div class="train" onclick="location.href='/search'">Train</div>
+            <div class="bus">Bus</div>
+            <div class="metro">Metro</div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../static/scripts/script.js"></script>
 
     <script>
         var ctx = document.getElementById("canvas").getContext('2d');
         var img = new Image();
         img.src = "{{ url_for('video_feed') }}";
-
         function refreshCanvas(){
             ctx.drawImage(img, 0, 0);
         };

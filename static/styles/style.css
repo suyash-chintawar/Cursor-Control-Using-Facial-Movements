@@ -1,6 +1,14 @@
-body{
-    height: 200vh;
+*
+{
+    padding: 0;
+    margin: 0px;
 }
+
+#content {
+    padding: 10px;
+    text-align: center;
+}
+
 .canvas_div {
     position: sticky;
     top: 0;
@@ -30,4 +38,88 @@ body{
     top: 5%;
     left: 4%;
     text-align: center;
+}
+
+option {
+    font-size: 30px;
+}
+
+select {
+    width: 85%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 25px;
+    padding: 30px;
+}
+
+#from, #to {
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+}
+
+#app_name{
+    background-color: cadetblue;
+    color: aliceblue;
+    height: 10vh;
+    font-size: 5vh;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 10vh;
+}
+
+.vehicle_type {
+    /* display: flex; */
+    flex-wrap: wrap;
+    text-align: center;
+    display: inline-block;
+}
+
+#buttons {
+    flex-wrap: wrap;
+    text-align: center;
+    display: inline-block;
+}
+
+.vehicle_type > div {
+    background-color: #abc2c7;
+    width: 150px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 35px;
+    display: inline-block;
+    height: 70px;
+    padding: 5px;
+}
+
+#buttons > div {
+    background-color: #abc2c7;
+    width: 90%;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 35px;
+    display: inline-block;
+    /* height: 70px; */
+    padding: 5px;
+}
+
+.bus:hover ,.train:hover, .metro:hover, #availability:hover, #fare:hover{
+    background-color: #305158;
+    color:aliceblue;
+    cursor: pointer;
+}
+
+.web_content_div{
+    text-align: center;
+}
+.welcome_message{
+    font-size: 3vh;
+    color: rgb(144, 0, 0);
+    padding: 5vh;
 }

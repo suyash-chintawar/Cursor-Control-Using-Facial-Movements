@@ -37,8 +37,9 @@ right_eye_brow_diff = None
 is_mode_selection = False
 anchor = None
 previous_action = None
-DRAG = 25
-SCROLL = 25
+HORIZONTAL_DRAG = 35
+VERTICAL_DRAG = 25
+SCROLL = 5
 
 def get_other_modes():
     if mode is MODE_CURSOR:
@@ -65,28 +66,28 @@ def perform(action, data):
                 pyag.scroll(SCROLL)
                 return "Scrolling Up"
             elif mode is MODE_CURSOR:
-                pyag.moveRel(0, -DRAG)
+                pyag.moveRel(0, -VERTICAL_DRAG)
                 return "Moving Up"
         elif direction is DIRECTION_DOWN:
             if mode is MODE_SCROLL:
                 pyag.scroll(-SCROLL)
                 return "Scrolling Down"
             elif mode is MODE_CURSOR:
-                pyag.moveRel(0, DRAG)
+                pyag.moveRel(0, VERTICAL_DRAG)
                 return "Moving Down"
         elif direction is DIRECTION_LEFT:
             if mode is MODE_SCROLL:
                 pyag.hscroll(-SCROLL)
                 return "Scrolling Left"
             else:
-                pyag.moveRel(-DRAG, 0)
+                pyag.moveRel(-HORIZONTAL_DRAG, 0)
                 return "Moving Left"
         elif direction is DIRECTION_RIGHT:
             if mode is MODE_SCROLL:
                 pyag.hscroll(SCROLL)
                 return "Scrolling Right"
             else:
-                pyag.moveRel(DRAG, 0)
+                pyag.moveRel(HORIZONTAL_DRAG, 0)
                 return "Moving Right"
 
     if action == previous_action or \

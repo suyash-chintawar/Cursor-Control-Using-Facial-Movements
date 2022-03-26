@@ -5,7 +5,7 @@ import face_analyser
 import window
 
 import cv2
-from flask import Flask, render_template, render_template_string, Response
+from flask import Flask, render_template, Response
 
 app = Flask(__name__)
 camera.init_camera()
@@ -30,7 +30,7 @@ def main_func():
             if FRAME_GAP is not None:
                 FRAME_GAP+=1
                 print(FRAME_GAP)
-                if FRAME_GAP >= 50:
+                if FRAME_GAP >= 40:
                     FRAME_GAP = None
 
             if action is face_analyser.ACTION_LEFT_WINK or action is face_analyser.ACTION_RIGHT_WINK:
@@ -52,6 +52,10 @@ def main_func():
 def index():
     """Video streaming"""
     return render_template('index.html')
+
+@app.route('/search')
+def search():
+    return render_template('search.html')
 
 @app.route('/video_feed')
 def video_feed():
