@@ -127,3 +127,75 @@ select:hover {
     color: rgb(144, 0, 0);
     padding: 5vh;
 }
+
+.block {
+    background-color: white;
+    padding: 20px;
+    width: 90%;
+    display: inline-block;
+}
+
+#availability-table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    text-align: center;
+  }
+  
+  #availability-table td, #availability-table th {
+    border: 1px solid rgb(0, 0, 0);
+    /* padding: 8px; */
+  }
+  
+  #availability-table td {
+      padding-top: 20px;
+      font-size: 20px;
+      padding-bottom: 20px;
+      text-align: center;
+      background-color: #f2f2f2;
+  }
+  
+  #availability-table th {
+      padding-top: 20px;
+      font-size: 20px;
+      padding-bottom: 20px;
+      text-align: center;
+      /* background-color: #34abc5; */
+      background-color: cadetblue;
+      color: white;
+  }
+
+  #fare-table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    text-align: center;
+  }
+  
+  #fare-table td, #fare-table th {
+    border: 1px solid rgb(0, 0, 0);
+    /* padding: 8px; */
+  }
+  
+  #fare-table td {
+      padding-top: 20px;
+      font-size: 20px;
+      padding-bottom: 20px;
+      text-align: center;
+      background-color: #f2f2f2;
+  }
+  
+  #fare-table th {
+      padding-top: 20px;
+      font-size: 20px;
+      padding-bottom: 20px;
+      text-align: center;
+      /* background-color: #34abc5; */
+      background-color: cadetblue;
+      color: white;
+  }
+  
+  table {
+      margin: 0 auto; /* or margin: 0 auto 0 auto */
+      table-layout: fixed;
+  }

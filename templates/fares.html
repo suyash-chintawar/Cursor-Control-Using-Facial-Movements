@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../static/styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body onload="get_mode();get_options();">
+<body onload="load_fares();get_mode_fares();">
     <div class="canvas_div split left">
         <div class="centered">
             <canvas id="canvas" width="640px" height="480px"></canvas>
@@ -15,33 +15,27 @@
             <h4>NOTE:<br>
             Keep your nose in the green rectangle for no cursor / scroll <br> movement.
             <br><br>
-            CONTROLS: <br>
-            1) Left eye wink  => Left mouse click. <br>
-            2) Right eye wink => Right mouse click. <br>
-            3) Head Movements => cursor/scroll movement. <br>
-            4) Squint Eyes + Open Mouth => toggle between <br> &nbsp &nbsp scroll/cursor mode. </h4>
+            Controls: <br>
+            1) Left Mouse click => Left Eye Wink. <br>
+            2) Right Mouse click => Right Eye Wink. <br>
+            3) Cursor/Scroll movement => Head Movements. <br>
+            4) Toggle between Scroll/Cursor mode => Squint Eyes + Open Mouth. </h4>
         </div>
     </div>
 
     <div class="web_content_div split right">
         <div id="app_name">Yatri Guide</div>    
         <div id="content" style="text-align: center;">
-            <div class="message" id="transport_mode"></div> <br>
+            <div class="message" id="transport_mode"></div>
             <div id="from">
                 Source: <br>
-                <select id="station-from" name="station-from">
-                    <option value="" selected disabled hidden>Choose here</option>
+                <select id="station-from-fares" name="station-from">
                 </select>
             </div>
             <div id="to">
                 Destination: <br>
-                <select id="station-to" name="station-to">
-                    <option value="" selected disabled hidden>Choose here</option>
+                <select id="station-to-fares" name="station-to">
                 </select>
-            </div>
-            <div id="buttons">
-                <div id="availability" onclick="check_availability();"> Check Availability </div>
-                <div id="fare" onclick="check_fromto();"> Calculate Fare </div>
             </div>
         </div>
     </div>

@@ -60,6 +60,10 @@ def search():
 @app.route('/availability')
 def availability():
     return render_template('availability.html')
+    
+@app.route('/fares')
+def fares():
+    return render_template('fares.html')
 
 @app.route('/video_feed')
 def video_feed():
