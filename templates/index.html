@@ -7,13 +7,25 @@
 </head>
 <body>
     <div class="canvas_div split left">
-        <div class="centered">
+        <div class="centered" >
             <canvas id="canvas" width="640px" height="480px"></canvas>
         </div>
+
+        <div id="instructions" style="padding-top: 57vh; padding-left: 40px; font-size: 25px;">
+            <h4>NOTE:<br>
+            Keep your nose in the green rectangle for no cursor / scroll <br> movement.
+            <br><br>
+            Controls: <br>
+            1) Left eye wink  => Left mouse click. <br>
+            2) Right eye wink => Right mouse click. <br>
+            3) Head Movements => cursor/scroll movement. <br>
+            4) Squint Eyes + Open Mouth => toggle between <br> &nbsp &nbsp scroll/cursor mode. </h4>
+        </div>
+    </div>
     </div>
     <div class="web_content_div split right">
         <div id="app_name">Yatri Guide</div>
-        <div class="welcome_message">Welcome to Touch-Free Live Status Interface<br><br> Choose one of the following to continue <br></div>
+        <div class="welcome_message">Welcome to Touch-Free Train Schedule Interface<br><br> Choose the mode of transport you wish to browse and explore. <br></div>
         <div class="vehicle_type">
             <div class="train" onclick="location.href='/search'">Train</div>
             <div class="bus">Bus</div>

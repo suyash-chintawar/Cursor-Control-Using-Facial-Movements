@@ -29,7 +29,7 @@ def main_func():
 
             if FRAME_GAP is not None:
                 FRAME_GAP+=1
-                print(FRAME_GAP)
+                # print(FRAME_GAP)
                 if FRAME_GAP >= 40:
                     FRAME_GAP = None
 

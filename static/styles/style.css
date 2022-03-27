@@ -56,6 +56,10 @@ select {
     padding: 30px;
 }
 
+select:hover {
+    cursor: pointer;
+}
+
 #from, #to {
     text-align: center;
     padding: 20px;

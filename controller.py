@@ -37,8 +37,8 @@ right_eye_brow_diff = None
 is_mode_selection = False
 anchor = None
 previous_action = None
-HORIZONTAL_DRAG = 35
-VERTICAL_DRAG = 25
+HORIZONTAL_DRAG = 25
+VERTICAL_DRAG = 15
 SCROLL = 5
 
 def get_other_modes():
