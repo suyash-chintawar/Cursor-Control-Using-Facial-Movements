@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../static/styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body onload="get_mode();get_options();">
+<body onload="get_mode();set_options();">
     <div class="canvas_div split left">
         <div class="centered">
             <canvas id="canvas" width="640px" height="480px"></canvas>
@@ -30,18 +30,12 @@
             <div id="from">
                 Source: <br>
                 <select id="station-from" name="station-from">
-                    <option value="" selected disabled hidden>Choose here</option>
                 </select>
             </div>
             <div id="to">
                 Destination: <br>
                 <select id="station-to" name="station-to">
-                    <option value="" selected disabled hidden>Choose here</option>
                 </select>
-            </div>
-            <div id="buttons">
-                <div id="availability" onclick="check_availability();"> Check Availability </div>
-                <div id="fare" onclick="location.href='/fare'"> Calculate Fare </div>
             </div>
         </div>
     </div>

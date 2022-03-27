@@ -15,7 +15,7 @@
             <h4>NOTE:<br>
             Keep your nose in the green rectangle for no cursor / scroll <br> movement.
             <br><br>
-            Controls: <br>
+            CONTROLS: <br>
             1) Left eye wink  => Left mouse click. <br>
             2) Right eye wink => Right mouse click. <br>
             3) Head Movements => cursor/scroll movement. <br>
@@ -25,11 +25,11 @@
     </div>
     <div class="web_content_div split right">
         <div id="app_name">Yatri Guide</div>
-        <div class="welcome_message">Welcome to Touch-Free Train Schedule Interface<br><br> Choose the mode of transport you wish to browse and explore. <br></div>
+        <div class="message">Welcome to Touch-Free Train Schedule Interface<br><br> Choose the mode of transport you wish to browse and explore. <br></div>
         <div class="vehicle_type">
-            <div class="train" onclick="location.href='/search'">Train</div>
-            <div class="bus">Bus</div>
-            <div class="metro">Metro</div>
+            <div class="train" id="train" onclick="clicked_div(this.id);">Train</div>
+            <div class="bus" id="bus" onclick="clicked_div(this.id);">Bus</div>
+            <div class="metro" id="metro" onclick="clicked_div(this.id);">Metro</div>
         </div>
     </div>
     <script type="text/javascript" src="../static/scripts/script.js"></script>

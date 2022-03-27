@@ -122,7 +122,7 @@ select:hover {
 .web_content_div{
     text-align: center;
 }
-.welcome_message{
+.message{
     font-size: 3vh;
     color: rgb(144, 0, 0);
     padding: 5vh;

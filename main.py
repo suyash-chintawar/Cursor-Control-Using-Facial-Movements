@@ -57,6 +57,10 @@ def index():
 def search():
     return render_template('search.html')
 
+@app.route('/availability')
+def availability():
+    return render_template('availability.html')
+
 @app.route('/video_feed')
 def video_feed():
     """Video streaming route. Put this in the src attribute of an img tag."""
