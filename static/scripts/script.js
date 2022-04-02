@@ -87,6 +87,10 @@ availablities={
 }
 
 
+function go_home() {
+    window.location.href = "home";
+}
+
 function clicked_div(id) {
     sessionStorage.setItem("transport_mode",JSON.stringify(id));
     window.location.href = "search";
@@ -197,7 +201,18 @@ function set_options() {
         </tr>
         </table> <br> <br>
         `
-    }   
+    }  
+    
+    document.getElementById('content').innerHTML+=`<div id="home" onclick="go_home();" style="
+        background-color: #abc2c7;
+        width: 45%;
+        margin: 10px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 35px;
+        display: inline-block;
+        padding: 5px;
+        "> Home </div>`;
 }
 
 
@@ -321,4 +336,15 @@ function load_fares()
     </tr>   
     </table>
     `
+
+    document.getElementById('content').innerHTML+=`<div id="home" onclick="go_home();" style="
+        background-color: #abc2c7;
+        width: 45%;
+        margin: 60px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 35px;
+        display: inline-block;
+        padding: 5px;
+        "> Home </div>`;
 }

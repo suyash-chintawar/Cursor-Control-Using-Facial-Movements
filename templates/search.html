@@ -4,6 +4,11 @@
     <title>Yatri Guide</title>
     <link rel="stylesheet" type="text/css" href="../static/styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        select:hover {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body onload="get_mode();get_options();">
     <div class="canvas_div split left">
@@ -11,15 +16,34 @@
             <canvas id="canvas" width="640px" height="480px"></canvas>
         </div>
 
-        <div id="instructions" style="padding-top: 57vh; padding-left: 40px; font-size: 25px;">
-            <h4>NOTE:<br>
-            Keep your nose in the green rectangle for no cursor / scroll <br> movement.
-            <br><br>
-            CONTROLS: <br>
-            1) Left eye wink  => Left mouse click. <br>
-            2) Right eye wink => Right mouse click. <br>
-            3) Head Movements => cursor/scroll movement. <br>
-            4) Squint Eyes + Open Mouth => toggle between <br> &nbsp &nbsp scroll/cursor mode. </h4>
+        <div id="instructions" style="padding-top: 57vh; padding-left: 18px; font-size: 25px;">
+            <h4 style="color: rgb(144, 0, 0);">NOTE:</h4>
+            <p>Keep your nose in the green rectangle for no cursor/scroll movement</p>
+            <br>
+            <p><b>Controls:-</b></p>
+            <br>
+            <table id="inst-table">
+                <tr>
+                    <th>Action to be Performed</th>
+                    <th>Gesture</th>
+                </tr>
+                <tr>
+                    <td>Left Mouse Click</td>
+                    <td>Left Eye Wink</td>
+                </tr>   
+                <tr>
+                    <td>Right Mouse Click</td>
+                    <td>Right Eye Wink</td>
+                </tr> 
+                <tr>
+                    <td>Cursor/Scroll Movements</td>
+                    <td>Head Movements</td>
+                </tr> 
+                <tr>
+                    <td>Toggle Between Scroll/ Cursor Mode</td>
+                    <td>Squit Eyes and Open Mouth</td>
+                </tr> 
+            </table>
         </div>
     </div>
 

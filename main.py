@@ -1,3 +1,4 @@
+from numpy import False_
 import camera
 import controller
 import face
@@ -32,8 +33,10 @@ def main_func():
                 # print(FRAME_GAP)
                 if FRAME_GAP >= 40:
                     FRAME_GAP = None
+                if action is face_analyser.ACTION_OPEN_MOUTH:
+                    continue
 
-            if action is face_analyser.ACTION_LEFT_WINK or action is face_analyser.ACTION_RIGHT_WINK:
+            if action is face_analyser.ACTION_LEFT_WINK or action is face_analyser.ACTION_RIGHT_WINK or action is face_analyser.ACTION_OPEN_MOUTH:
                 if FRAME_GAP==None:
                     message = controller.perform(action, data)
                     FRAME_GAP = 0
@@ -49,9 +52,11 @@ def main_func():
     # window.destroy_all_windows()
 
 @app.route('/')
+@app.route('/home')
 def index():
     """Video streaming"""
     return render_template('index.html')
+
 
 @app.route('/search')
 def search():

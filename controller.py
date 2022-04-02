@@ -14,7 +14,7 @@ MODE_SCROLL = 3
 MODE_TEAMS = 4
 
 
-def _get_direction(nose_point, anchor_point, w=60, h=35, multiple=1):
+def _get_direction(nose_point, anchor_point, w=35, h=35, multiple=1):
     nx, ny = nose_point
     x, y = anchor_point
 
@@ -59,6 +59,7 @@ def perform(action, data):
             anchor = data.nose_point
             left_eye_brow_diff = data.left_eye_brow_diff
             right_eye_brow_diff = data.right_eye_brow_diff
+            return 'Cursor mode activated'
     else:
         direction = _get_direction(data.nose_point, anchor)
         if direction is DIRECTION_UP:

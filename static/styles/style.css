@@ -28,6 +28,7 @@
 }
 .left {
     left: 0;
+    width: 40%;
 }
 .right {
     right: 0;
@@ -56,9 +57,9 @@ select {
     padding: 30px;
 }
 
-select:hover {
+/* select:hover {
     cursor: pointer;
-}
+} */
 
 #from, #to {
     text-align: center;
@@ -91,17 +92,17 @@ select:hover {
 
 .vehicle_type > div {
     background-color: #abc2c7;
-    width: 150px;
-    margin: 10px;
+    width: 100px;
+    height: 100px;
+    margin: 25px;
     text-align: center;
-    line-height: 75px;
+    line-height: 100px;
     font-size: 35px;
     display: inline-block;
-    height: 70px;
-    padding: 5px;
+    padding: 50px;
 }
 
-#buttons > div {
+#buttons > div, #home {
     background-color: #abc2c7;
     width: 90%;
     margin: 10px;
@@ -113,8 +114,8 @@ select:hover {
     padding: 5px;
 }
 
-.bus:hover ,.train:hover, .metro:hover, #availability:hover, #fare:hover{
-    background-color: #305158;
+.bus:hover ,.train:hover, .metro:hover, #availability:hover, #fare:hover, #home:hover {
+    background-color: #305158 !important;
     color:aliceblue;
     cursor: pointer;
 }
@@ -169,6 +170,7 @@ select:hover {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 80%;
+    padding-bottom: 20px;
     text-align: center;
   }
   
@@ -199,3 +201,29 @@ select:hover {
       margin: 0 auto; /* or margin: 0 auto 0 auto */
       table-layout: fixed;
   }
+
+#instructions{
+    text-align: left;
+}
+
+#inst-table {
+position: relative;
+font-family: Arial, Helvetica, sans-serif;
+border-collapse: collapse;
+width: 85%;
+text-align: center;
+left:0px;
+}
+
+#inst-table th, #inst-table td {
+border: 1px solid rgb(0, 0, 0);
+/* padding: 8px; */
+}
+
+#inst-table th, #inst-table td {
+  padding-top: 8px;
+  font-size: 20px;
+  padding-bottom: 8px;
+  text-align: center;
+  background-color: #f2f2f2;
+}

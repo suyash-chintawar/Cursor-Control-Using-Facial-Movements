@@ -12,7 +12,7 @@ COLOR_BLUE = (255, 0, 0)
 COLOR_BLACK = (0, 0, 0)
 
 
-W, H = 60, 35
+W, H = 35, 35
 
 
 def mode_to_str(mode):
@@ -56,14 +56,14 @@ def show(frame, data, mode, message, anchor):
 
     if mode_str is not '':
         cv2.putText(frame, mode_str.upper(), (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_RED, 2)
-        cv2.putText(frame, 'Squint+open mouth to change mode', (10, 450), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_BLACK, 2)
+        # cv2.putText(frame, 'Squint+open mouth to change mode', (10, 450), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_BLACK, 2)
 
-        if mode_str == 'Cursor Mode' or mode_str == 'Scroll Mode':
-            cv2.putText(frame, 'left wink : left click', (350, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_BLACK, 2)
-            cv2.putText(frame, 'right wink : right click', (350, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_BLACK, 2)
-        elif mode_str == 'Teams Mode':
-            cv2.putText(frame, 'left wink : toggle video ', (400, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_BLACK, 2)
-            cv2.putText(frame, 'right wink : toggle mic', (400, 100), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_BLACK, 2)
+        # if mode_str == 'Cursor Mode' or mode_str == 'Scroll Mode':
+        #     cv2.putText(frame, 'left wink : left click', (350, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_BLACK, 2)
+        #     cv2.putText(frame, 'right wink : right click', (350, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_BLACK, 2)
+        # elif mode_str == 'Teams Mode':
+        #     cv2.putText(frame, 'left wink : toggle video ', (400, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_BLACK, 2)
+        #     cv2.putText(frame, 'right wink : toggle mic', (400, 100), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_BLACK, 2)
     else:
         cv2.putText(frame, 'OPEN MOUTH TO START SYSTEM', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_RED, 2)
     cv2.putText(frame, message, (10, 120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_RED, 2)
