@@ -1,6 +1,9 @@
 var transport_mode;
-var stations = ['Mumbai','Bangalore','Chennai','Delhi'];
+var train_stations = ['Mumbai','Bangalore','Chennai','Delhi'];
+var metro_stations = ['Mumbai','Bangalore','Chennai','Delhi'];
+var bus_stations = ['Mumbai','Bangalore','Chennai','Delhi'];
 var availability_from,availability_to;
+var fare_from, fare_to, check_from, check_to;
 
 availablities={ 
     "train":
@@ -86,9 +89,86 @@ availablities={
     }
 }
 
+fares={
+    "train":
+    {
+        "Mumbai":{
+            'Bangalore': [10,100,500],
+            'Chennai': [20,100,500],
+            'Delhi': [10,100,500]
+        },
+        "Bangalore":{
+            'Mumbai': [10,100,500],
+            'Chennai': [10,100,500],
+            'Delhi': [10,100,500]
+        },
+        "Chennai":{
+            'Bangalore': [10,100,500],
+            'Mumbai': [10,100,500],
+            'Delhi': [10,100,500]
+        },
+        "Delhi":{
+            'Bangalore': [10,100,500],
+            'Chennai': [10,100,500],
+            'Mumbai': [10,100,500]
+        }
+    },
+    "bus":
+    {
+        "Mumbai":{
+            'Bangalore': [10,100,500],
+            'Chennai': [20,100,500],
+            'Delhi': [10,100,500]
+        },
+        "Bangalore":{
+            'Mumbai': [10,100,500],
+            'Chennai': [10,100,500],
+            'Delhi': [10,100,500]
+        },
+        "Chennai":{
+            'Bangalore': [10,100,500],
+            'Mumbai': [10,100,500],
+            'Delhi': [10,100,500]
+        },
+        "Delhi":{
+            'Bangalore': [10,100,500],
+            'Chennai': [10,100,500],
+            'Mumbai': [10,100,500]
+        }
+    },
+    "metro":
+    {
+        "Mumbai":{
+            'Bangalore': [10,100,500],
+            'Chennai': [20,100,500],
+            'Delhi': [10,100,500]
+        },
+        "Bangalore":{
+            'Mumbai': [10,100,500],
+            'Chennai': [10,100,500],
+            'Delhi': [10,100,500]
+        },
+        "Chennai":{
+            'Bangalore': [10,100,500],
+            'Mumbai': [10,100,500],
+            'Delhi': [10,100,500]
+        },
+        "Delhi":{
+            'Bangalore': [10,100,500],
+            'Chennai': [10,100,500],
+            'Mumbai': [10,100,500]
+        }
+    }
+}
+
 
 function go_home() {
     window.location.href = "home";
+    sessionStorage.removeItem("transport_mode");
+    sessionStorage.removeItem("availability_from");
+    sessionStorage.removeItem("availability_to");
+    sessionStorage.removeItem("fare_from");
+    sessionStorage.removeItem("fare_to");
 }
 
 function clicked_div(id) {
@@ -160,10 +240,30 @@ function get_mode_fares() {
 }
 
 function get_options() {
-    for(let i=0;i<stations.length;i++)
+
+    if(transport_mode == 'train')
     {
-        document.getElementById('station-from').innerHTML += "<option value=" +stations[i]+">"+stations[i]+"</option>";
-        document.getElementById('station-to').innerHTML += "<option value=" +stations[i]+">"+stations[i]+"</option>";
+        for(let i=0;i<train_stations.length;i++)
+        {
+            document.getElementById('station-from').innerHTML += "<option value=" +train_stations[i]+">"+stations[i]+"</option>";
+            document.getElementById('station-to').innerHTML += "<option value=" +train_stations[i]+">"+stations[i]+"</option>";
+        }
+    }
+    else if(transport_mode=='bus')
+    {
+        for(let i=0;i<bus_stations.length;i++)
+        {
+            document.getElementById('station-from').innerHTML += "<option value=" +bus_stations[i]+">"+stations[i]+"</option>";
+            document.getElementById('station-to').innerHTML += "<option value=" +bus_stations[i]+">"+stations[i]+"</option>";
+        }
+    }
+    else if(transport_mode=='metro')
+    {
+        for(let i=0;i<metro_stations.length;i++)
+        {
+            document.getElementById('station-from').innerHTML += "<option value=" +metro_stations[i]+">"+stations[i]+"</option>";
+            document.getElementById('station-to').innerHTML += "<option value=" +metro_stations[i]+">"+stations[i]+"</option>";
+        }
     }
 }
 
@@ -215,9 +315,6 @@ function set_options() {
         "> Home </div>`;
 }
 
-
-var fare_from, fare_to, check_from, check_to;
-
 function check_fromto() {
     var from = document.getElementById('station-from').value;
     var to = document.getElementById('station-to').value;
@@ -245,77 +342,7 @@ function load_fares()
     document.getElementById('station-to-fares').innerHTML+=`
     <option value="${check_to}" selected disabled hidden>${check_to}</option>
     `
-    fares={
-        "train":
-        {
-            "Mumbai":{
-                'Bangalore': [10,100,500],
-                'Chennai': [20,100,500],
-                'Delhi': [10,100,500]
-            },
-            "Bangalore":{
-                'Mumbai': [10,100,500],
-                'Chennai': [10,100,500],
-                'Delhi': [10,100,500]
-            },
-            "Chennai":{
-                'Bangalore': [10,100,500],
-                'Mumbai': [10,100,500],
-                'Delhi': [10,100,500]
-            },
-            "Delhi":{
-                'Bangalore': [10,100,500],
-                'Chennai': [10,100,500],
-                'Mumbai': [10,100,500]
-            }
-        },
-        "bus":
-        {
-            "Mumbai":{
-                'Bangalore': [10,100,500],
-                'Chennai': [20,100,500],
-                'Delhi': [10,100,500]
-            },
-            "Bangalore":{
-                'Mumbai': [10,100,500],
-                'Chennai': [10,100,500],
-                'Delhi': [10,100,500]
-            },
-            "Chennai":{
-                'Bangalore': [10,100,500],
-                'Mumbai': [10,100,500],
-                'Delhi': [10,100,500]
-            },
-            "Delhi":{
-                'Bangalore': [10,100,500],
-                'Chennai': [10,100,500],
-                'Mumbai': [10,100,500]
-            }
-        },
-        "metro":
-        {
-            "Mumbai":{
-                'Bangalore': [10,100,500],
-                'Chennai': [20,100,500],
-                'Delhi': [10,100,500]
-            },
-            "Bangalore":{
-                'Mumbai': [10,100,500],
-                'Chennai': [10,100,500],
-                'Delhi': [10,100,500]
-            },
-            "Chennai":{
-                'Bangalore': [10,100,500],
-                'Mumbai': [10,100,500],
-                'Delhi': [10,100,500]
-            },
-            "Delhi":{
-                'Bangalore': [10,100,500],
-                'Chennai': [10,100,500],
-                'Mumbai': [10,100,500]
-            }
-        }
-    }
+
     price=fares[transport_mode][check_from][check_to];
     document.getElementById('content').innerHTML+=`
     <br>
