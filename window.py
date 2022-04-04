@@ -20,8 +20,8 @@ def mode_to_str(mode):
         return 'Scroll Mode'
     elif mode is controller.MODE_CURSOR:
         return 'Cursor Mode'
-    elif mode is controller.MODE_TEAMS:
-        return 'Teams Mode'
+    # elif mode is controller.MODE_TEAMS:
+    #     return 'Teams Mode'
     else:
         return ''
 
@@ -56,11 +56,14 @@ def show(frame, data, mode, message, anchor):
 
     if mode_str is not '':
         cv2.putText(frame, mode_str.upper(), (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_RED, 2)
-        # cv2.putText(frame, 'Squint+open mouth to change mode', (10, 450), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_BLACK, 2)
+        
 
-        if mode_str == 'Cursor Mode' or mode_str == 'Scroll Mode':
+        if mode_str == 'Cursor Mode':
             cv2.putText(frame, '   left wink : left click', (370, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_YELLOW, 2)
             cv2.putText(frame, 'right wink : right click', (370, 70), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_YELLOW, 2)
+            cv2.putText(frame, 'Squint and open mouth for scrolling', (10, 450), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_YELLOW, 2)
+        elif mode_str=='Scroll Mode':
+            cv2.putText(frame, 'Squint and open mouth for cursor movement', (10, 450), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_YELLOW, 2)
         # elif mode_str == 'Teams Mode':
         #     cv2.putText(frame, 'left wink : toggle video ', (400, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_BLACK, 2)
         #     cv2.putText(frame, 'right wink : toggle mic', (400, 100), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_BLACK, 2)
@@ -69,11 +72,11 @@ def show(frame, data, mode, message, anchor):
         cv2.putText(frame, 'OPEN MOUTH TO START SYSTEM', (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_RED, 2)
     cv2.putText(frame, message, (10, 120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_RED, 2)
 
-    if controller.is_mode_selection:
-        other_modes = controller.get_other_modes()
-        if other_modes is not None:
-            modes_str = f"Left = {mode_to_str(other_modes[0])} | Right = {mode_to_str(other_modes[1])}"
-            cv2.putText(frame, modes_str, (10, 400), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_RED, 2)
+    # if controller.is_mode_selection:
+    #     other_modes = controller.get_other_modes()
+    #     if other_modes is not None:
+    #         modes_str = f"Left = {mode_to_str(other_modes[0])} | Right = {mode_to_str(other_modes[1])}"
+    #         cv2.putText(frame, modes_str, (10, 400), cv2.FONT_HERSHEY_SIMPLEX, 0.7, COLOR_RED, 2)
 
     # cv2.imshow("Frame", frame)
     return frame
