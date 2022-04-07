@@ -14,7 +14,7 @@ MODE_SCROLL = 3
 # MODE_TEAMS = 4
 
 
-def _get_direction(nose_point, anchor_point, w=35, h=35, multiple=1):
+def _get_direction(nose_point, anchor_point, w=45, h=35, multiple=1):
     nx, ny = nose_point
     x, y = anchor_point
 

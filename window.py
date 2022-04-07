@@ -12,7 +12,7 @@ COLOR_BLUE = (255, 0, 0)
 COLOR_BLACK = (0, 0, 0)
 
 
-W, H = 35, 35
+W, H = 45, 35
 
 
 def mode_to_str(mode):
