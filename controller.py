@@ -11,7 +11,6 @@ DIRECTION_RIGHT = 4
 
 MODE_CURSOR = 2
 MODE_SCROLL = 3
-# MODE_TEAMS = 4
 
 
 def _get_direction(nose_point, anchor_point, w=45, h=35, multiple=1):
@@ -34,21 +33,12 @@ def _get_direction(nose_point, anchor_point, w=45, h=35, multiple=1):
 mode = None
 left_eye_brow_diff = None
 right_eye_brow_diff = None
-# is_mode_selection = False
+
 anchor = None
 previous_action = None
 HORIZONTAL_DRAG = 25
 VERTICAL_DRAG = 15
 SCROLL = 5
-
-# def get_other_modes():
-#     if mode is MODE_CURSOR:
-#         return [MODE_SCROLL, MODE_TEAMS]
-#     elif mode is MODE_SCROLL:
-#         return [MODE_CURSOR, MODE_TEAMS]
-    # elif mode is MODE_TEAMS:
-    #     return [MODE_CURSOR, MODE_SCROLL]
-
 
 def perform(action, data):
     global mode, anchor, previous_action, left_eye_brow_diff, right_eye_brow_diff #, is_mode_selection
@@ -97,22 +87,8 @@ def perform(action, data):
 
     previous_action = action
 
-    # if is_mode_selection:
-    #     other_modes = get_other_modes()
-    #     if action is analyser.ACTION_LEFT_WINK:
-    #         is_mode_selection = False
-    #         mode = other_modes[0]
-    #         return "Selected Option 1"
-    #     elif action is analyser.ACTION_RIGHT_WINK:
-    #         is_mode_selection = False
-    #         mode = other_modes[1]
-    #         return "Selected Option 2"
-    #     return None
 
     if action is analyser.ACTION_SQUINT:
-        # if not is_mode_selection:
-        #     is_mode_selection = True
-        #     return 'Switched to Selection Mode'
         if mode is MODE_CURSOR:
             mode = MODE_SCROLL
             return 'Scroll mode activated'
@@ -125,22 +101,14 @@ def perform(action, data):
         anchor = None
         return 'Controller Deactivated'
     elif action is analyser.ACTION_LEFT_WINK:
-        # if mode is MODE_TEAMS:
-        #     pyag.hotkey("ctrl", "shift", "o")
-        #     print("Toggle Camera")
-        #     return "Toggle Camera"
         if mode is not None:
             pyag.click(button="left")
-            print('Left Click')
+            
             return "Left Click"
     elif action is analyser.ACTION_RIGHT_WINK:
-        # if mode is MODE_TEAMS:
-        #     pyag.hotkey("ctrl", "shift", "m")
-        #     print("Toggle Mic")
-        #     return "Toggle Mic"
         if mode is not None:
             pyag.click(button="right")
-            print('Right Click')
+            
             return "Right Click"
     else:
         return None

@@ -13,9 +13,7 @@ camera.init_camera()
 
 FRAME_GAP = None
 
-# if __name__ == '__main__': 
 def main_func():
-    # camera.init_camera()
     global FRAME_GAP
     while True:
         frame = camera.read_frame()
@@ -30,7 +28,6 @@ def main_func():
 
             if FRAME_GAP is not None:
                 FRAME_GAP+=1
-                # print(FRAME_GAP)
                 if FRAME_GAP >= 40:
                     FRAME_GAP = None
                 if action is face_analyser.ACTION_OPEN_MOUTH:
